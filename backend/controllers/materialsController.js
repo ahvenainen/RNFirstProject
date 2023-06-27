@@ -2,11 +2,11 @@ const Material = require('../models/material');
 
 exports.createMaterial = (req, res) => {
     console.log('Received a request to create a material');
-    const type = req.body.type;
-    const amount = req.body.price;
+    const name = req.body.name;
+    const amount = req.body.amount;
     const price = req.body.price;
 
-    const newMaterial = new Material({ type, amount, price });
+    const newMaterial = new Material({ name, amount, price });
 
     newMaterial.save()
         .then(() => res.json('Material added!'))
