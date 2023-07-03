@@ -1,10 +1,11 @@
 const Project = require('../models/project');
 
-exports.createMaterial = (req, res) => {
-    console.log('Received a request to create a project');
-    const name = req.body.name;
+exports.createProject = (req, res) => {
+    console.log('Received a request to create a project', req.body);
 
-    const newProject = new Project({ name });
+    const project = req.body;
+
+    const newProject = new Project(project);
 
     newProject.save()
         .then(() => res.json('Project added!'))
@@ -13,6 +14,6 @@ exports.createMaterial = (req, res) => {
 
 exports.getAllProjects = (req, res) => {
     Project.find()
-        .then(materials => res.json(materials))
+        .then(projects => res.json(projects))
         .catch(err => res.status(400).json('Error: ' + err));
 }

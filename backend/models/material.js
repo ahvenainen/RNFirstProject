@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const materialSchema = newMongoose.Schema({
+const materialSchema = new mongoose.Schema({
     name: String,
     amount: Number,
     price: Number,

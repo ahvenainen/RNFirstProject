@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const usersRouter = require('./routes/users');
+const projectsRouter = require('./routes/projects');
 
 const app = express();
 
@@ -24,6 +25,7 @@ mongoose.connect('mongodb://localhost:27017/usersDB', { useNewUrlParser: true, u
 
 // Routes
 app.use('/api/users', usersRouter);
+app.use('/api/projects', projectsRouter);
 
 app.get('/', (req, res) => {
     res.send('Hello World!');
@@ -36,13 +38,12 @@ app.use((err, req, res, next) => {
 });
 
 
-
-
-
-//const user = new User({
-//     name: 'John Doe',
+// // Define a schema for the data
+// const dataSchema = new mongoose.Schema({
+//     data: String,
 // });
 
-// user.save()
-//     .then(() => console.log('User saved!'))
-//     .catch(err => console.log('Error saving user:', err));
+// // Define a model for the data
+// const Data = mongoose.model('Data', dataSchema);
+
+const Data = require('../models/data');  // require the Data model

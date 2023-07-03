@@ -19,8 +19,7 @@ export default function HomeScreen({ navigation }) {
 
     const handleUploadProject = () => {
         // Make an HTTP request to upload the project data to the server
-        // Change the endpoint URL as required
-        axios.post('http://10.0.2.2:3000/api/projects/create', { project: projectName })
+        axios.post('http://10.0.2.2:3000/api/projects/create', { name: projectName })
             .then(response => {
                 console.log('Project added successfully');
             })
