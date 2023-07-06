@@ -43,10 +43,9 @@ function MainContainer() {
                 })}
             >
 
-
-                <Tab.Screen name={homeName} component={HomeScreen} />
-                <Tab.Screen name={detailsName} component={DetailsScreen} />
-                <Tab.Screen name={settingsName} component={SettingsScreen} />
+                <Tab.Screen name={homeName} component={HomeScreen} options={{ headerShown: false }} />
+                <Tab.Screen name={detailsName} component={DetailsScreen} options={{ headerShown: false }} />
+                <Tab.Screen name={settingsName} component={SettingsScreen} options={{ headerShown: false }} />
 
             </Tab.Navigator>
         </NavigationContainer>

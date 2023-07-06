@@ -46,4 +46,4 @@ app.use((err, req, res, next) => {
 // // Define a model for the data
 // const Data = mongoose.model('Data', dataSchema);
 
-const Data = require('../models/data');  // require the Data model
+// const Data = require('../models/data');  // require the Data model
