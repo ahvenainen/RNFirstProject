@@ -68,8 +68,8 @@ const ProjectCalendar = () => {
             date: '2023-07-05',
             description: 'This is project 1.',
             participants: ['User4', 'User5'],
-            hours: 2,
-            minutes: 30,
+            hours: 12,
+            minutes: 31,
             materials: [
                 { name: 'Screws', quantity: 50 },
                 { name: 'Bolts', quantity: 100 },
@@ -77,12 +77,12 @@ const ProjectCalendar = () => {
         },
         {
             id: 4,
-            name: 'ProjectName1',
+            name: 'ProjectName',
             date: '2023-07-06',
             description: 'This is project 1.',
             participants: ['User5', 'User6'],
-            hours: 2,
-            minutes: 30,
+            hours: 12,
+            minutes: 31,
             materials: [
                 { name: 'Screws', quantity: 50 },
                 { name: 'Bolts', quantity: 100 },
@@ -172,7 +172,7 @@ const styles = StyleSheet.create({
     },
     sideColor: {
         width: '30%',
-        backgroundColor: '#B0E0E6',
+        backgroundColor: '#B4D5DB',
         borderTopLeftRadius: 30,
         borderBottomLeftRadius: 30,
         justifyContent: 'center',

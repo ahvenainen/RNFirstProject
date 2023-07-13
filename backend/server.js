@@ -1,8 +1,15 @@
+require('dotenv').config();
+console.log(process.env.MONGODB_URI);
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const usersRouter = require('./routes/users');
 const projectsRouter = require('./routes/projects');
+const materialsRouter = require('./routes/materials');
+const hoursRouter = require('./routes/hours');
+
+// This line should be at the top, before any route definitions
+require('express-async-errors');
 
 const app = express();
 
@@ -11,7 +18,7 @@ app.use(cors());
 app.use(express.json());
 
 // Connect to MongoDB
-mongoose.connect('mongodb://localhost:27017/usersDB', { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => {
         console.log('Connected to MongoDB...');
 
@@ -26,24 +33,16 @@ mongoose.connect('mongodb://localhost:27017/usersDB', { useNewUrlParser: true, u
 // Routes
 app.use('/api/users', usersRouter);
 app.use('/api/projects', projectsRouter);
+app.use('/api/materials', materialsRouter);
+app.use('/api/hours', hoursRouter)
 
 app.get('/', (req, res) => {
     res.send('Hello World!');
 });
+
 
 // Error Handling Middleware
 app.use((err, req, res, next) => {
     console.error(err.stack);
     res.status(500).send('Something broke!');
 });
-
-
-// // Define a schema for the data
-// const dataSchema = new mongoose.Schema({
-//     data: String,
-// });
-
-// // Define a model for the data
-// const Data = mongoose.model('Data', dataSchema);
-
-// const Data = require('../models/data');  // require the Data model
